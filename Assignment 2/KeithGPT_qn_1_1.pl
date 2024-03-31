@@ -7,8 +7,10 @@ boss(stevey, appy).
 
 
 % Exercise 1.3: The unethical predicate is true if the boss of the company has stolen technology from a competitor and the competitor has developed the technology.
+%  ',' represents the AND operator, ';' represents the OR operator
+
 unethical(X) :- 
-boss(X, Company), 
-stolen(X, Technology), 
-developed(Competitor, Technology), 
-competitor(Competitor, Company).
+    boss(X, Company), 
+    stolen(X, Technology), 
+    developed(Competitor, Technology), 
+    competitor(Competitor, Company).
