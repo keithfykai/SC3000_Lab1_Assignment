@@ -1,8 +1,10 @@
 % Exercise 1.2: Determining facts and rules for the unethical predicate.
+company(sumsum).
+company(appy).
 competitor(sumsum, appy).
 smartPhoneTechnology(galacticas3).
 developed(sumsum, galacticas3).
-stolen(stevey, galacticas3).
+theft(stevey, galacticas3).
 boss(stevey, appy).
 
 
@@ -11,6 +13,6 @@ boss(stevey, appy).
 
 unethical(X) :- 
     boss(X, Company), 
-    stolen(X, Technology), 
+    theft(X, Technology), 
     developed(Competitor, Technology), 
     competitor(Competitor, Company).
