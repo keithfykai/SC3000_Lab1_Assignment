@@ -31,12 +31,14 @@ check_older(A, B):-
     check_older(X, B).
 
 % Succession ordering rules.
+% Rule 1 
 successor(X, Y):-
     parent(A, X), 
     parent(A, Y), 
     male(X), 
     female(Y).
 
+% Rule 2 
 successor(X, Y):-
     parent(A, X), 
     parent(A, Y), 
@@ -44,6 +46,7 @@ successor(X, Y):-
     male(Y), 
     check_older(X, Y).
 
+% Rule 3
 successor(X, Y):-	
     parent(A, X), 
     parent(A, Y), 
@@ -55,7 +58,7 @@ successor(X, Y):-
 sort_succession_list(List, SortedList) :-
     predsort(compare_successor, List, SortedList).
 
-% Part of the sorting algorithm.
+% Compares the gender and age, and returns the result back to the sorting algorithm.
 compare_successor(Result, X, Y) :-
     (   male(X), female(Y) -> Result = (<)
     ;   female(X), male(Y) -> Result = (>)
